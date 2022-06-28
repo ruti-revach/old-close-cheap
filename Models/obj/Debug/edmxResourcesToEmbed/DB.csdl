@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="close_cheapModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="businessOwner">
+    <Key>
+      <PropertyRef Name="shop_id" />
+    </Key>
+    <Property Name="shop_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="adress" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="phone" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="class_id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="registered_stores" Relationship="Self.FK_registered_stores_businessOwner" FromRole="businessOwner" ToRole="registered_stores" />
+  </EntityType>
+  <EntityType Name="history">
+    <Key>
+      <PropertyRef Name="history_id" />
+    </Key>
+    <Property Name="history_id" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="user_id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="user" Relationship="Self.FK_history_user" FromRole="history" ToRole="user" />
+  </EntityType>
+  <EntityType Name="kategory">
+    <Key>
+      <PropertyRef Name="kategory_Id" />
+    </Key>
+    <Property Name="kategory_Id" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="registered_stores_id" Type="Int32" Nullable="false" />
+    <Property Name="class_id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="registered_stores" Relationship="Self.FK__kategory__regist__71D1E811" FromRole="kategory" ToRole="registered_stores" />
+  </EntityType>
+  <EntityType Name="registered_stores">
+    <Key>
+      <PropertyRef Name="registered_stores_id" />
+    </Key>
+    <Property Name="registered_stores_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="shop_id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="businessOwner" Relationship="Self.FK_registered_stores_businessOwner" FromRole="registered_stores" ToRole="businessOwner" />
+    <NavigationProperty Name="kategory" Relationship="Self.FK__kategory__regist__71D1E811" FromRole="registered_stores" ToRole="kategory" />
+  </EntityType>
+  <EntityType Name="user">
+    <Key>
+      <PropertyRef Name="user_id" />
+    </Key>
+    <Property Name="user_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="userName" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="password" Type="Int32" Nullable="false" />
+    <Property Name="adressUser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="history" Relationship="Self.FK_history_user" FromRole="user" ToRole="history" />
+  </EntityType>
+  <Association Name="FK_registered_stores_businessOwner">
+    <End Role="businessOwner" Type="Self.businessOwner" Multiplicity="1" />
+    <End Role="registered_stores" Type="Self.registered_stores" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="businessOwner">
+        <PropertyRef Name="shop_id" />
+      </Principal>
+      <Dependent Role="registered_stores">
+        <PropertyRef Name="registered_stores_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_history_user">
+    <End Role="user" Type="Self.user" Multiplicity="1" />
+    <End Role="history" Type="Self.history" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="user">
+        <PropertyRef Name="user_id" />
+      </Principal>
+      <Dependent Role="history">
+        <PropertyRef Name="user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__kategory__regist__71D1E811">
+    <End Role="registered_stores" Type="Self.registered_stores" Multiplicity="1" />
+    <End Role="kategory" Type="Self.kategory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="registered_stores">
+        <PropertyRef Name="registered_stores_id" />
+      </Principal>
+      <Dependent Role="kategory">
+        <PropertyRef Name="registered_stores_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="close_cheapEntities2" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="businessOwner" EntityType="Self.businessOwner" />
+    <EntitySet Name="history" EntityType="Self.history" />
+    <EntitySet Name="kategory" EntityType="Self.kategory" />
+    <EntitySet Name="registered_stores" EntityType="Self.registered_stores" />
+    <EntitySet Name="user" EntityType="Self.user" />
+    <AssociationSet Name="FK_registered_stores_businessOwner" Association="Self.FK_registered_stores_businessOwner">
+      <End Role="businessOwner" EntitySet="businessOwner" />
+      <End Role="registered_stores" EntitySet="registered_stores" />
+    </AssociationSet>
+    <AssociationSet Name="FK_history_user" Association="Self.FK_history_user">
+      <End Role="user" EntitySet="user" />
+      <End Role="history" EntitySet="history" />
+    </AssociationSet>
+    <AssociationSet Name="FK__kategory__regist__71D1E811" Association="Self.FK__kategory__regist__71D1E811">
+      <End Role="registered_stores" EntitySet="registered_stores" />
+      <End Role="kategory" EntitySet="kategory" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,285 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="close_cheapModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="businessOwner">
+          <Key>
+            <PropertyRef Name="shop_id" />
+          </Key>
+          <Property Name="shop_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="adress" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="phone" Type="nvarchar" MaxLength="10" />
+          <Property Name="class_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="history">
+          <Key>
+            <PropertyRef Name="history_id" />
+          </Key>
+          <Property Name="history_id" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="user_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="kategory">
+          <Key>
+            <PropertyRef Name="kategory_Id" />
+          </Key>
+          <Property Name="kategory_Id" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="registered_stores_id" Type="int" Nullable="false" />
+          <Property Name="class_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="registered stores">
+          <Key>
+            <PropertyRef Name="registered_stores_id" />
+          </Key>
+          <Property Name="registered_stores_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="shop_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="user">
+          <Key>
+            <PropertyRef Name="user_id" />
+          </Key>
+          <Property Name="user_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="userName" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="password" Type="int" Nullable="false" />
+          <Property Name="adressUser" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__kategory__regist__71D1E811">
+          <End Role="registered stores" Type="Self.registered stores" Multiplicity="1" />
+          <End Role="kategory" Type="Self.kategory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="registered stores">
+              <PropertyRef Name="registered_stores_id" />
+            </Principal>
+            <Dependent Role="kategory">
+              <PropertyRef Name="registered_stores_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_history_user">
+          <End Role="user" Type="Self.user" Multiplicity="1" />
+          <End Role="history" Type="Self.history" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="user_id" />
+            </Principal>
+            <Dependent Role="history">
+              <PropertyRef Name="user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_registered stores_businessOwner">
+          <End Role="businessOwner" Type="Self.businessOwner" Multiplicity="1" />
+          <End Role="registered stores" Type="Self.registered stores" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="businessOwner">
+              <PropertyRef Name="shop_id" />
+            </Principal>
+            <Dependent Role="registered stores">
+              <PropertyRef Name="registered_stores_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="close_cheapModelStoreContainer">
+          <EntitySet Name="businessOwner" EntityType="Self.businessOwner" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="history" EntityType="Self.history" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="kategory" EntityType="Self.kategory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="registered stores" EntityType="Self.registered stores" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="user" EntityType="Self.user" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__kategory__regist__71D1E811" Association="Self.FK__kategory__regist__71D1E811">
+            <End Role="registered stores" EntitySet="registered stores" />
+            <End Role="kategory" EntitySet="kategory" />
+          </AssociationSet>
+          <AssociationSet Name="FK_history_user" Association="Self.FK_history_user">
+            <End Role="user" EntitySet="user" />
+            <End Role="history" EntitySet="history" />
+          </AssociationSet>
+          <AssociationSet Name="FK_registered stores_businessOwner" Association="Self.FK_registered stores_businessOwner">
+            <End Role="businessOwner" EntitySet="businessOwner" />
+            <End Role="registered stores" EntitySet="registered stores" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="close_cheapModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="businessOwner">
+          <Key>
+            <PropertyRef Name="shop_id" />
+          </Key>
+          <Property Name="shop_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="adress" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="phone" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="class_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="registered_stores" Relationship="Self.FK_registered_stores_businessOwner" FromRole="businessOwner" ToRole="registered_stores" />
+        </EntityType>
+        <EntityType Name="history">
+          <Key>
+            <PropertyRef Name="history_id" />
+          </Key>
+          <Property Name="history_id" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="user_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="user" Relationship="Self.FK_history_user" FromRole="history" ToRole="user" />
+        </EntityType>
+        <EntityType Name="kategory">
+          <Key>
+            <PropertyRef Name="kategory_Id" />
+          </Key>
+          <Property Name="kategory_Id" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="registered_stores_id" Type="Int32" Nullable="false" />
+          <Property Name="class_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="registered_stores" Relationship="Self.FK__kategory__regist__71D1E811" FromRole="kategory" ToRole="registered_stores" />
+        </EntityType>
+        <EntityType Name="registered_stores">
+          <Key>
+            <PropertyRef Name="registered_stores_id" />
+          </Key>
+          <Property Name="registered_stores_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="shop_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="businessOwner" Relationship="Self.FK_registered_stores_businessOwner" FromRole="registered_stores" ToRole="businessOwner" />
+          <NavigationProperty Name="kategory" Relationship="Self.FK__kategory__regist__71D1E811" FromRole="registered_stores" ToRole="kategory" />
+        </EntityType>
+        <EntityType Name="user">
+          <Key>
+            <PropertyRef Name="user_id" />
+          </Key>
+          <Property Name="user_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="userName" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="password" Type="Int32" Nullable="false" />
+          <Property Name="adressUser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="history" Relationship="Self.FK_history_user" FromRole="user" ToRole="history" />
+        </EntityType>
+        <Association Name="FK_registered_stores_businessOwner">
+          <End Role="businessOwner" Type="Self.businessOwner" Multiplicity="1" />
+          <End Role="registered_stores" Type="Self.registered_stores" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="businessOwner">
+              <PropertyRef Name="shop_id" />
+            </Principal>
+            <Dependent Role="registered_stores">
+              <PropertyRef Name="registered_stores_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_history_user">
+          <End Role="user" Type="Self.user" Multiplicity="1" />
+          <End Role="history" Type="Self.history" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="user_id" />
+            </Principal>
+            <Dependent Role="history">
+              <PropertyRef Name="user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__kategory__regist__71D1E811">
+          <End Role="registered_stores" Type="Self.registered_stores" Multiplicity="1" />
+          <End Role="kategory" Type="Self.kategory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="registered_stores">
+              <PropertyRef Name="registered_stores_id" />
+            </Principal>
+            <Dependent Role="kategory">
+              <PropertyRef Name="registered_stores_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="close_cheapEntities2" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="businessOwner" EntityType="Self.businessOwner" />
+          <EntitySet Name="history" EntityType="Self.history" />
+          <EntitySet Name="kategory" EntityType="Self.kategory" />
+          <EntitySet Name="registered_stores" EntityType="Self.registered_stores" />
+          <EntitySet Name="user" EntityType="Self.user" />
+          <AssociationSet Name="FK_registered_stores_businessOwner" Association="Self.FK_registered_stores_businessOwner">
+            <End Role="businessOwner" EntitySet="businessOwner" />
+            <End Role="registered_stores" EntitySet="registered_stores" />
+          </AssociationSet>
+          <AssociationSet Name="FK_history_user" Association="Self.FK_history_user">
+            <End Role="user" EntitySet="user" />
+            <End Role="history" EntitySet="history" />
+          </AssociationSet>
+          <AssociationSet Name="FK__kategory__regist__71D1E811" Association="Self.FK__kategory__regist__71D1E811">
+            <End Role="registered_stores" EntitySet="registered_stores" />
+            <End Role="kategory" EntitySet="kategory" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="close_cheapModelStoreContainer" CdmEntityContainer="close_cheapEntities2">
+          <EntitySetMapping Name="businessOwner">
+            <EntityTypeMapping TypeName="close_cheapModel.businessOwner">
+              <MappingFragment StoreEntitySet="businessOwner">
+                <ScalarProperty Name="shop_id" ColumnName="shop_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="adress" ColumnName="adress" />
+                <ScalarProperty Name="phone" ColumnName="phone" />
+                <ScalarProperty Name="class_id" ColumnName="class_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="history">
+            <EntityTypeMapping TypeName="close_cheapModel.history">
+              <MappingFragment StoreEntitySet="history">
+                <ScalarProperty Name="history_id" ColumnName="history_id" />
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="kategory">
+            <EntityTypeMapping TypeName="close_cheapModel.kategory">
+              <MappingFragment StoreEntitySet="kategory">
+                <ScalarProperty Name="kategory_Id" ColumnName="kategory_Id" />
+                <ScalarProperty Name="registered_stores_id" ColumnName="registered_stores_id" />
+                <ScalarProperty Name="class_id" ColumnName="class_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="registered_stores">
+            <EntityTypeMapping TypeName="close_cheapModel.registered_stores">
+              <MappingFragment StoreEntitySet="registered stores">
+                <ScalarProperty Name="registered_stores_id" ColumnName="registered_stores_id" />
+                <ScalarProperty Name="shop_id" ColumnName="shop_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="user">
+            <EntityTypeMapping TypeName="close_cheapModel.user">
+              <MappingFragment StoreEntitySet="user">
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="userName" ColumnName="userName" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="adressUser" ColumnName="adressUser" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

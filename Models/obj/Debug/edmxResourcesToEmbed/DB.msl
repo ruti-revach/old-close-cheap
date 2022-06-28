@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="close_cheapModelStoreContainer" CdmEntityContainer="close_cheapEntities2">
+    <EntitySetMapping Name="businessOwner">
+      <EntityTypeMapping TypeName="close_cheapModel.businessOwner">
+        <MappingFragment StoreEntitySet="businessOwner">
+          <ScalarProperty Name="shop_id" ColumnName="shop_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="adress" ColumnName="adress" />
+          <ScalarProperty Name="phone" ColumnName="phone" />
+          <ScalarProperty Name="class_id" ColumnName="class_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="history">
+      <EntityTypeMapping TypeName="close_cheapModel.history">
+        <MappingFragment StoreEntitySet="history">
+          <ScalarProperty Name="history_id" ColumnName="history_id" />
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="kategory">
+      <EntityTypeMapping TypeName="close_cheapModel.kategory">
+        <MappingFragment StoreEntitySet="kategory">
+          <ScalarProperty Name="kategory_Id" ColumnName="kategory_Id" />
+          <ScalarProperty Name="registered_stores_id" ColumnName="registered_stores_id" />
+          <ScalarProperty Name="class_id" ColumnName="class_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="registered_stores">
+      <EntityTypeMapping TypeName="close_cheapModel.registered_stores">
+        <MappingFragment StoreEntitySet="registered stores">
+          <ScalarProperty Name="registered_stores_id" ColumnName="registered_stores_id" />
+          <ScalarProperty Name="shop_id" ColumnName="shop_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="user">
+      <EntityTypeMapping TypeName="close_cheapModel.user">
+        <MappingFragment StoreEntitySet="user">
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="userName" ColumnName="userName" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="adressUser" ColumnName="adressUser" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

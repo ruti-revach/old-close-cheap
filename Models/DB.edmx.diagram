@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="f0de08c1f51b437691485e2e3bbbc3ed" Name="Diagram1" ZoomLevel="102">
+        <EntityTypeShape EntityType="close_cheapModel.businessOwner" Width="1.5" PointX="0.75" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="close_cheapModel.history" Width="1.5" PointX="5" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="close_cheapModel.kategory" Width="1.5" PointX="5.25" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="close_cheapModel.registered_stores" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="close_cheapModel.user" Width="1.5" PointX="2.75" PointY="3.875" IsExpanded="true" />
+        <AssociationConnector Association="close_cheapModel.FK_registered_stores_businessOwner" ManuallyRouted="false" />
+        <AssociationConnector Association="close_cheapModel.FK_history_user" ManuallyRouted="false" />
+        <AssociationConnector Association="close_cheapModel.FK__kategory__regist__71D1E811" ManuallyRouted="false" />
+        <AssociationConnector Association="close_cheapModel.FK_businessOwner_2" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

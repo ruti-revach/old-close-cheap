@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="close_cheapModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="businessOwner">
+    <Key>
+      <PropertyRef Name="shop_id" />
+    </Key>
+    <Property Name="shop_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="adress" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="phone" Type="nvarchar" MaxLength="10" />
+    <Property Name="class_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="history">
+    <Key>
+      <PropertyRef Name="history_id" />
+    </Key>
+    <Property Name="history_id" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="user_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="kategory">
+    <Key>
+      <PropertyRef Name="kategory_Id" />
+    </Key>
+    <Property Name="kategory_Id" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="registered_stores_id" Type="int" Nullable="false" />
+    <Property Name="class_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="registered stores">
+    <Key>
+      <PropertyRef Name="registered_stores_id" />
+    </Key>
+    <Property Name="registered_stores_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="shop_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="user">
+    <Key>
+      <PropertyRef Name="user_id" />
+    </Key>
+    <Property Name="user_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="userName" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="password" Type="int" Nullable="false" />
+    <Property Name="adressUser" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__kategory__regist__71D1E811">
+    <End Role="registered stores" Type="Self.registered stores" Multiplicity="1" />
+    <End Role="kategory" Type="Self.kategory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="registered stores">
+        <PropertyRef Name="registered_stores_id" />
+      </Principal>
+      <Dependent Role="kategory">
+        <PropertyRef Name="registered_stores_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_history_user">
+    <End Role="user" Type="Self.user" Multiplicity="1" />
+    <End Role="history" Type="Self.history" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="user">
+        <PropertyRef Name="user_id" />
+      </Principal>
+      <Dependent Role="history">
+        <PropertyRef Name="user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_registered stores_businessOwner">
+    <End Role="businessOwner" Type="Self.businessOwner" Multiplicity="1" />
+    <End Role="registered stores" Type="Self.registered stores" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="businessOwner">
+        <PropertyRef Name="shop_id" />
+      </Principal>
+      <Dependent Role="registered stores">
+        <PropertyRef Name="registered_stores_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="close_cheapModelStoreContainer">
+    <EntitySet Name="businessOwner" EntityType="Self.businessOwner" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="history" EntityType="Self.history" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="kategory" EntityType="Self.kategory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="registered stores" EntityType="Self.registered stores" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="user" EntityType="Self.user" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__kategory__regist__71D1E811" Association="Self.FK__kategory__regist__71D1E811">
+      <End Role="registered stores" EntitySet="registered stores" />
+      <End Role="kategory" EntitySet="kategory" />
+    </AssociationSet>
+    <AssociationSet Name="FK_history_user" Association="Self.FK_history_user">
+      <End Role="user" EntitySet="user" />
+      <End Role="history" EntitySet="history" />
+    </AssociationSet>
+    <AssociationSet Name="FK_registered stores_businessOwner" Association="Self.FK_registered stores_businessOwner">
+      <End Role="businessOwner" EntitySet="businessOwner" />
+      <End Role="registered stores" EntitySet="registered stores" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

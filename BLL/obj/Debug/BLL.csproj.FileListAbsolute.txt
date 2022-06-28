@@ -1,0 +1,40 @@
+C:\Users\Comp1\source\repos\CloseAndcheap\BLL\bin\Debug\BLL.dll.config
+C:\Users\Comp1\source\repos\CloseAndcheap\BLL\bin\Debug\BLL.dll
+C:\Users\Comp1\source\repos\CloseAndcheap\BLL\bin\Debug\BLL.pdb
+C:\Users\Comp1\source\repos\CloseAndcheap\BLL\bin\Debug\DAL.dll
+C:\Users\Comp1\source\repos\CloseAndcheap\BLL\bin\Debug\EntityFramework.dll
+C:\Users\Comp1\source\repos\CloseAndcheap\BLL\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Comp1\source\repos\CloseAndcheap\BLL\bin\Debug\Models.dll
+C:\Users\Comp1\source\repos\CloseAndcheap\BLL\bin\Debug\DAL.pdb
+C:\Users\Comp1\source\repos\CloseAndcheap\BLL\bin\Debug\DAL.dll.config
+C:\Users\Comp1\source\repos\CloseAndcheap\BLL\bin\Debug\Models.pdb
+C:\Users\Comp1\source\repos\CloseAndcheap\BLL\bin\Debug\Models.dll.config
+C:\Users\Comp1\source\repos\CloseAndcheap\BLL\bin\Debug\EntityFramework.xml
+C:\Users\Comp1\source\repos\CloseAndcheap\BLL\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Comp1\source\repos\CloseAndcheap\BLL\obj\Debug\BLL.csproj.AssemblyReference.cache
+C:\Users\Comp1\source\repos\CloseAndcheap\BLL\obj\Debug\BLL.csproj.CoreCompileInputs.cache
+C:\Users\Comp1\source\repos\CloseAndcheap\BLL\obj\Debug\BLL.csproj.CopyComplete
+C:\Users\Comp1\source\repos\CloseAndcheap\BLL\obj\Debug\BLL.dll
+C:\Users\Comp1\source\repos\CloseAndcheap\BLL\obj\Debug\BLL.pdb
+C:\Users\Comp1\Desktop\פרוייקט עדכני\CloseAndcheap\BLL\obj\Debug\BLL.csproj.AssemblyReference.cache
+C:\Users\Comp1\Desktop\פרוייקט עדכני\CloseAndcheap\BLL\obj\Debug\BLL.csproj.CoreCompileInputs.cache
+C:\Users\Comp1\Desktop\פרוייקט עדכני\CloseAndcheap\BLL\obj\Debug\BLL.dll
+C:\Users\Comp1\Desktop\פרוייקט עדכני\CloseAndcheap\BLL\obj\Debug\BLL.pdb
+C:\Users\Comp1\Desktop\פרוייקט עדכני\CloseAndcheap\BLL\bin\Debug\BLL.dll.config
+C:\Users\Comp1\Desktop\פרוייקט עדכני\CloseAndcheap\BLL\bin\Debug\BLL.dll
+C:\Users\Comp1\Desktop\פרוייקט עדכני\CloseAndcheap\BLL\bin\Debug\BLL.pdb
+C:\Users\Comp1\Desktop\פרוייקט עדכני\CloseAndcheap\BLL\bin\Debug\DAL.dll
+C:\Users\Comp1\Desktop\פרוייקט עדכני\CloseAndcheap\BLL\bin\Debug\EntityFramework.dll
+C:\Users\Comp1\Desktop\פרוייקט עדכני\CloseAndcheap\BLL\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Comp1\Desktop\פרוייקט עדכני\CloseAndcheap\BLL\bin\Debug\Models.dll
+C:\Users\Comp1\Desktop\פרוייקט עדכני\CloseAndcheap\BLL\bin\Debug\DAL.pdb
+C:\Users\Comp1\Desktop\פרוייקט עדכני\CloseAndcheap\BLL\bin\Debug\DAL.dll.config
+C:\Users\Comp1\Desktop\פרוייקט עדכני\CloseAndcheap\BLL\bin\Debug\Models.pdb
+C:\Users\Comp1\Desktop\פרוייקט עדכני\CloseAndcheap\BLL\bin\Debug\Models.dll.config
+C:\Users\Comp1\Desktop\פרוייקט עדכני\CloseAndcheap\BLL\bin\Debug\EntityFramework.xml
+C:\Users\Comp1\Desktop\פרוייקט עדכני\CloseAndcheap\BLL\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Comp1\Desktop\פרוייקט עדכני\CloseAndcheap\BLL\obj\Debug\BLL.csproj.CopyComplete
+C:\Users\Comp1\Desktop\פרוייקט עדכני\CloseAndcheap\BLL\bin\Debug\GoogleMaps.LocationServices.dll
+C:\Users\Comp1\Desktop\פרוייקט עדכני\CloseAndcheap\BLL\bin\Debug\System.ServiceModel.Http.dll
+C:\Users\Comp1\Desktop\פרוייקט עדכני\CloseAndcheap\BLL\bin\Debug\System.ServiceModel.NetTcp.dll
+C:\Users\Comp1\Desktop\פרוייקט עדכני\CloseAndcheap\BLL\bin\Debug\System.ServiceModel.Primitives.dll
